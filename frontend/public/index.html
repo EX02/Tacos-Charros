@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacos Charros - Auténtica Comida Mexicana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            50: '#fffbeb',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        },
+                        red: {
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2) 0%, rgba(217, 119, 6, 0.2) 100%);
+        }
+        
+        .gradient-footer {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-amber-50 to-orange-50 min-h-screen">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-red-600 p-2 rounded-full">
+                    <i class="fas fa-utensils text-white text-lg"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-amber-900">Tacos Charros</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-amber-900 hover:text-red-600 font-medium transition-colors">Inicio</a>
+                <a href="#menu" class="text-amber-900 hover:text-red-600 font-medium transition-colors">Menú</a>
+                <a href="#sobre-nosotros" class="text-amber-900 hover:text-red-600 font-medium transition-colors">Sobre Nosotros</a>
+                <a href="#contacto" class="text-amber-900 hover:text-red-600 font-medium transition-colors">Contacto</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menuToggle" class="md:hidden">
+                <i class="fas fa-bars text-amber-900 text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav id="mobileMenu" class="md:hidden bg-white py-4 px-4 hidden">
+            <a href="#inicio" class="block py-2 text-amber-900 hover:text-red-600 font-medium">Inicio</a>
+            <a href="#menu" class="block py-2 text-amber-900 hover:text-red-600 font-medium">Menú</a>
+            <a href="#sobre-nosotros" class="block py-2 text-amber-900 hover:text-red-600 font-medium">Sobre Nosotros</a>
+            <a href="#contacto" class="block py-2 text-amber-900 hover:text-red-600 font-medium">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative py-20 md:py-32 overflow-hidden hero-bg">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h2 class="text-5xl md:text-7xl font-bold text-amber-900 mb-6">
+                    Auténtica Comida Mexicana
+                </h2>
+                <p class="text-xl md:text-2xl text-amber-800 mb-8">
+                    Sabores tradicionales que te transportarán directamente a México
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#menu" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2 transition-colors">
+                        Ver Menú <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <a href="#contacto" class="border-2 border-amber-900 text-amber-900 hover:bg-amber-900 hover:text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors">
+                        Reservar Mesa
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-amber-900 mb-4">Nuestra Historia</h3>
+                <div class="w-24 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <img src="https://placehold.co/600x400/8B4513/FFFFFF?text=Tacos+Charros+Restaurant" alt="Restaurante Tacos Charros" class="rounded-2xl shadow-2xl w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h4 class="text-2xl font-bold text-amber-900 mb-4">Tradición y Pasión en Cada Bocado</h4>
+                    <p class="text-amber-800 mb-6 leading-relaxed">
+                        Tacos Charros nació del amor por la cocina mexicana 
+                        tradicional.
+                    </p>
+                    <p class="text-amber-800 mb-8 leading-relaxed">
+                        Nuestro compromiso es preservar la autenticidad de la cocina mexicana
+                    </p>
+                    <div class="flex items-center gap-4 text-red-600 font-semibold">
+                        <i class="fas fa-bolt"></i>
+                        <span>Ingredientes 100% frescos diariamente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-amber-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-amber-900 mb-4">Nuestro Menú</h3>
+                <div class="w-24 h-1 bg-red-600 mx-auto"></div>
+                <p class="text-amber-800 mt-4 max-w-2xl mx-auto">
+                    Descubre nuestros platillos más populares
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu Item 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x300/8B4513/FFFFFF?text=Tacos+al+Pastor" alt="Tacos al Pastor" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full flex items-center gap-1">
+                            <i class="fas fa-fire text-xs"></i>
+                            <span class="text-sm font-semibold">Popular</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-amber-900">Tacos al Pastor</h4>
+                            <span class="text-red-600 font-bold text-lg">$12</span>
+                        </div>
+                        <p class="text-amber-800">Carne de cerdo marinada con piña, servida en tortillas de maíz</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x300/CD853F/FFFFFF?text=Tacos+de+Carnitas" alt="Tacos de Carnitas" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full flex items-center gap-1">
+                            <i class="fas fa-fire text-xs"></i>
+                            <span class="text-sm font-semibold">Popular</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-amber-900">Tacos de Carnitas</h4>
+                            <span class="text-red-600 font-bold text-lg">$14</span>
+                        </div>
+                        <p class="text-amber-800">Carnitas de cerdo slow-cooked, jugosas y crujientes</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x300/A0522D/FFFFFF?text=Tacos+de+Barbacoa" alt="Tacos de Barbacoa" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-white text-amber-900 px-3 py-1 rounded-full flex items-center gap-1 border">
+                            <i class="fas fa-star text-xs"></i>
+                            <span class="text-sm font-semibold">Especialidad</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-amber-900">Tacos de Barbacoa</h4>
+                            <span class="text-red-600 font-bold text-lg">$16</span>
+                        </div>
+                        <p class="text-amber-800">Carne de res cocida al vapor con especias tradicionales</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x300/4682B4/FFFFFF?text=Tacos+de+Pescado" alt="Tacos de Pescado" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4 bg-white text-amber-900 px-3 py-1 rounded-full flex items-center gap-1 border">
+                            <i class="fas fa-fish text-xs"></i>
+                            <span class="text-sm font-semibold">Del Mar</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-amber-900">Tacos de Pescado</h4>
+                            <span class="text-red-600 font-bold text-lg">$18</span>
+                        </div>
+                        <p class="text-amber-800">Filete de pescado fresco empanizado con chipotle y limón</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x300/FFD700/000000?text=Quesadillas" alt="Quesadillas" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-amber-900">Quesadillas</h4>
+                            <span class="text-red-600 font-bold text-lg">$10</span>
+                        </div>
+                        <p class="text-amber-800">Queso Oaxaca fundido con flor de calabaza o huitlacoche</p>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 6 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x300/32CD32/FFFFFF?text=Guacamole+Casero" alt="Guacamole Casero" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-amber-900">Guacamole Casero</h4>
+                            <span class="text-red-600 font-bold text-lg">$8</span>
+                        </div>
+                        <p class="text-amber-800">Aguacate fresco con tomate, cebolla y cilantro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-amber-900 mb-4">Lo que dicen nuestros clientes</h3>
+                <div class="w-24 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-amber-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/8B4513/FFFFFF?text=MR" alt="Eduardo Coto" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-amber-900">Eduardo Coto</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-amber-800 italic">"¡Los mejores tacos al pastor que he probado!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-amber-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/CD853F/FFFFFF?text=CM" alt="Gabriel Cedeño" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-amber-900">Gabriel Cedeño</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-amber-800 italic">"Servicio excepcional. ¡Volveré cada semana!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-amber-50 p-6 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/A0522D/FFFFFF?text=AL" alt="Dora Astacio" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold text-amber-900">Dora Astacio</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-amber-800 italic">"Excelente calidad. Recomiendo los tacos."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20" style="background: linear-gradient(135deg, #dc2626 0%, #d97706 100%);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold text-white mb-4">Visítanos</h3>
+                <div class="w-24 h-1 bg-white mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
+                    <h4 class="text-2xl font-bold text-white mb-6">Información de Contacto</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white/20 p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Dirección</p>
+                                <p class="text-white/80">Ejemplo: Av. México 123, Colonia Centro, Ciudad</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white/20 p-3 rounded-full">
+                                <i class="fas fa-clock text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Horarios</p>
+                                <p class="text-white/80">Lunes a Domingo: 00:00 AM - 00:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white/20 p-3 rounded-full">
+                                <i class="fas fa-phone text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Teléfono</p>
+                                <p class="text-white/80">+505 1234 5678</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h5 class="text-white font-semibold mb-4">Síguenos en redes sociales</h5>
+                        <div class="flex gap-4">
+                            <div class="bg-white/20 p-3 rounded-full hover:bg-white/30 transition-colors cursor-pointer">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </div>
+                            <div class="bg-white/20 p-3 rounded-full hover:bg-white/30 transition-colors cursor-pointer">
+                                <i class="fab fa-instagram text-white"></i>
+                            </div>
+                            <div class="bg-white/20 p-3 rounded-full hover:bg-white/30 transition-colors cursor-pointer">
+                                <i class="fab fa-twitter text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl">
+                    <h4 class="text-2xl font-bold text-amber-900 mb-6">Reserva tu Mesa</h4>
+                    <form id="reservationForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-amber-900 font-medium mb-2">Nombre</label>
+                                <input type="text" class="w-full px-4 py-3 border border-amber-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Tu nombre" required>
+                            </div>
+                            <div>
+                                <label class="block text-amber-900 font-medium mb-2">Teléfono</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-amber-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Tu teléfono" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-amber-900 font-medium mb-2">Fecha</label>
+                                <input type="date" class="w-full px-4 py-3 border border-amber-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" required>
+                            </div>
+                            <div>
+                                <label class="block text-amber-900 font-medium mb-2">Hora</label>
+                                <select class="w-full px-4 py-3 border border-amber-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" required>
+                                    <option value="">Selecciona una hora</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-amber-900 font-medium mb-2">Número de personas</label>
+                            <select class="w-full px-4 py-3 border border-amber-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" required>
+                                <option value="">Selecciona el número</option>
+                                <option value="1-2">1-2 personas</option>
+                                <option value="3-4">3-4 personas</option>
+                                <option value="5-6">5-6 personas</option>
+                                <option value="7+">7+ personas</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-amber-900 font-medium mb-2">Notas adicionales</label>
+                            <textarea rows="3" class="w-full px-4 py-3 border border-amber-200 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Alérgenos, celebraciones especiales, etc."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold text-lg transition-colors">
+                            Reservar Mesa
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gradient-footer text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <div class="bg-red-600 p-2 rounded-full">
+                        <i class="fas fa-utensils text-white text-lg"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold">Tacos Charros</h2>
+                </div>
+                <p class="text-amber-200 mb-6">Auténtica comida mexicana desde 2015</p>
+                <div class="border-t border-amber-800 pt-6">
+                    <p class="text-amber-300">
+                        © 2025 Tacos Charros. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu reserva! Te contactaremos pronto para confirmar.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

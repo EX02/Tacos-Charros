@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: ../
+      dockerfile: deploy/Dockerfile-frontend
+    ports:
+      - "3000:3000"
+  backend-go:
+    build:
+      context: ../
+      dockerfile: deploy/Dockerfile-backend-go
+    ports:
+      - "8080:8080"
+  backend-laravel:
+    build:
+      context: ../
+      dockerfile: deploy/Dockerfile-backend-laravel
+    ports:
+      - "8000:80"

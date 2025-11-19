@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Reservar - Tacos Charros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html">Tacos <span>Charros</span></a></div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a class="active" href="reservar.html">Reservar</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="content-section">
+      <h2>Reservar Mesa</h2>
+      <p class="muted">Rellena el formulario para solicitar una reservación. Si la API no está disponible, la reserva se guardará localmente y se enviará cuando haya conexión.</p>
+      <form id="resFormPage" class="res-form">
+        <label>Nombre completo<input name="nombre" type="text" required></label>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Teléfono<input name="telefono" type="tel"></label>
+        <div class="form-row">
+          <label>Fecha<input name="fecha" type="date" required></label>
+          <label>Hora<input name="hora" type="time" required></label>
+        </div>
+        <label>Personas<input name="personas" type="number" min="1" max="20" value="2"></label>
+        <label>Mensaje<textarea name="mensaje" rows="3"></textarea></label>
+        <button type="submit" class="btn">Confirmar Reservación</button>
+        <p id="resStatusPage" class="muted"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand">Tacos <span>Charros</span></div>
+      <div class="copyright">&copy; 2025 Tacos Charros</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Conectar el formulario de esta página con el script global
+    (function(){
+      const formMain = document.getElementById('resForm');
+      const formPage = document.getElementById('resFormPage');
+      const statusPage = document.getElementById('resStatusPage');
+      if (formPage) {
+        formPage.addEventListener('submit', async (e)=>{
+          e.preventDefault();
+          statusPage.textContent = 'Enviando...';
+          const data = Object.fromEntries(new FormData(formPage));
+          try {
+            const res = await fetch('http://localhost:8080/reservation', {
+              method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
+            });
+            const j = await res.json();
+            if (j && j.status === 'ok') { statusPage.textContent = 'Reservación enviada. Gracias!'; formPage.reset(); }
+            else { statusPage.textContent = 'Reservación guardada localmente.'; }
+          } catch(err) {
+            const pending = JSON.parse(localStorage.getItem('pendingReservations')||'[]'); pending.push(data); localStorage.setItem('pendingReservations', JSON.stringify(pending)); statusPage.textContent = 'Sin conexión: reservación guardada localmente.';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
